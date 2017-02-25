@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+.slide {width:600px; height:260px; margin:10px auto; overflow:hidden; position:relative; border:2px solid red; z-index:10}
+.slide ul {position:relative; z-index:1}
+.slide ul li {float:left; width:400px; height:260px;}
+img{ width:400px; height:260px}
+</style>
+
+<script>
+
+	
+
+
+
+
+
+window.onload=function (){
+	
+	function marguee(id,speed){//id：盒子id   speed:速度（像素）
+		//函数的参数，就是函数内隐形声明的一个变量
+		var oBox=document.getElementById(id);
+		//ul设定宽度
+		var oUl=oBox.getElementsByTagName('ul')[0];
+		oUl.innerHTML+=oUl.innerHTML;//复制一套图片
+		var aLi=oBox.getElementsByTagName('li');
+		
+		oUl.style.width=400*aLi.length+'px';//设定ul宽度
+		var timer=null;//计时器变量
+		//--------------------------------------------
+		var l=0;//起点
+		function move(){
+			timer=setInterval(function(){
+				l-=speed;	
+				var w=-400*aLi.length/2;//一套图片的长度
+				
+				if(l<w){//走完一套图片，从头开始
+					l=0;
+				};
+				//先判断，后赋值
+				oUl.style.left=l+'px';
+			},30);
+		};
+		move();
+		//-----------------------------------------
+		oBox.onmouseover=function(){
+			clearInterval(timer);
+		};
+		oBox.onmouseout=function(){
+			move();
+		};
+	
+	
+	};
+	
+	
+	marguee("div1",10);
+	marguee("div2",20);
+	marguee("div3",1);
+	
+	
+
+
+};
+
+
+</script>
+</head>
+
+<body>
+<div id="div1" class="slide">
+	<ul>
+    	<li><img src="images/01.jpg" /></li>
+    	<li><img src="images/02.jpg" /></li>
+    	<li><img src="images/03.jpg" /></li>
+    	<li><img src="images/04.jpg" /></li>
+    </ul>
+</div>
+
+<div id="div2" class="slide">
+	<ul>
+    	<li><img src="images/01.jpg" /></li>
+    	<li><img src="images/02.jpg" /></li>
+    	<li><img src="images/03.jpg" /></li>
+    	<li><img src="images/04.jpg" /></li>
+    </ul>
+</div>
+<div id="div3" class="slide">
+	<ul>
+    	<li><img src="images/01.jpg" /></li>
+    	<li><img src="images/02.jpg" /></li>
+    	<li><img src="images/03.jpg" /></li>
+    	<li><img src="images/04.jpg" /></li>
+    </ul>
+</div>
+
+
+</body>
+</html>

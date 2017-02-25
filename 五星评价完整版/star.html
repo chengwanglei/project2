@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>五星评价</title>
+<style>
+a{ display:inline-block; height:30px; width:30px; padding:5px;background:url(star.png) no-repeat center -40px}
+.ac{ background-position:center 0}
+
+</style>
+</head>
+
+<body>
+<a></a><a></a><a></a><a></a><a></a>
+
+
+<script>
+	var aA=document.getElementsByTagName('a');
+	
+	var n=0;//记录的被点击的a的牌照
+	
+	for(var i=0; i<aA.length; i++){
+		aA[i].index=i;//发牌照
+		//onmouseover
+		aA[i].onmouseover=function(){
+			//所有的a标签跟自己进行比较
+			for(var j=0; j<aA.length; j++){
+				if(j<=this.index){
+					aA[j].className='ac';
+				}else{
+					aA[j].className='';
+				}
+			}
+		};
+		
+		//onmouseout
+		aA[i].onmouseout=function(){
+			//全都去掉
+			for(var k=0; k<aA.length; k++){
+				aA[k].className='';
+			};
+			//按照n的位置去变色
+			for(var j=0; j<aA.length; j++){
+				if(j<n){
+					aA[j].className='ac';
+				}else{
+					aA[j].className='';
+				}
+			}
+		};
+		
+		//onclick
+		aA[i].onclick=function(){
+			//记录被点击a的index
+			n=this.index+1;
+			console.log(n);
+			
+		};
+	};
+	
+	
+	
+	
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+.modal{ width:100%; height:100%; position:fixed; left:0; top:0; background:#000; opacity:.3;}
+.openBtn{height:40px; width:100px; border:1px solid #ccc; margin:100px auto; display:block}
+.loginBox{ width:500px; height:300px; background:#fff; position:absolute; z-index:2;}
+.loginBox h3{ height:50px; line-height:50px; background:#999; color:#333}
+.loginBox .closeBtn{ position:absolute; top:10px; right:10px; width:30px; height:30px; text-align:center; line-height:30px;}
+.loginBox p{ height:50px; line-height:50px; padding-left:30px}
+.loginBox button{ height:40px; width:100px; border:1px solid #ccc}
+.loginBox .text{ height:26px; width:300px}
+
+</style>
+<script src="hxsd_tools.js"></script>
+<script src="hxsd_widget.js"></script>
+<script>
+window.onload=function(){
+	var openLoginBtn=document.getElementById('openLoginBtn');
+	
+	//弹窗弹框
+	openLoginBtn.onclick=function(){
+		loginBox();
+		this.blur();
+	
+	};
+	
+	
+	
+
+
+};
+
+
+
+
+</script>
+
+
+
+
+</head>
+
+<body>
+<button class="openBtn" id="openLoginBtn" type="button">登录</button>
+<!--<div class="modal"></div>
+
+<div class="loginBox" id="loginBox">
+	<h3>登录</h3>
+	<form>
+    	<p><label for="userName">用户名:</label><input class="text" id="userName" type="text"></p>
+        <p><label>密　码:<input class="text" type="text"></label></p>
+        <p>性别:<label><input type="radio">男</label> <label><input type="radio">女</label></p>
+        <p><button type="submit">确定</button> <button type="button">取消</button></p>
+    </form>
+    <span class="closeBtn">×</span>
+</div>-->
+
+</body>
+</html>

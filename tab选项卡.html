@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+ul{ list-style:none}
+a{ text-decoration:none}
+
+.hide{ display:none}
+
+.tab{ width:500px; margin-bottom:30px}
+.tab .tabList{ height:40px}
+.tab .tabList li{ height:40px; float:left; padding:0 20px; line-height:40px}
+.tab .tabList .ac{ background:#ccc;}
+.tab .tabList .ac a{ color:#fff}
+.tab .tabItem{ min-height:300px; border:1px solid #ccc;}
+</style>
+
+<script>
+window.onload=function(){
+	
+	function myTab(id,autoRun){
+		//点击li 切换ac
+		var tab=document.getElementById(id);
+		var tabList=tab.getElementsByTagName('ul')[0];
+		var aLi=tabList.getElementsByTagName('li');
+		var aTabItem=tab.getElementsByClassName('tabItem');
+		var n=0;
+		
+		//点击切换---------------------------------------
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].index=i;//发牌照
+			
+			aLi[i].onclick=function(){
+				//所有的li去掉ac
+				for(var j=0; j<aLi.length; j++){
+					aLi[j].className='';
+					aTabItem[j].style.display='none';
+				};
+				//this加上ac
+				this.className='ac';
+				aTabItem[this.index].style.display='block';
+			};
+		};
+		
+		//自动切换---------------------------------
+		setInterval(function(){
+			n++;
+			//所有的li去掉ac
+			//所有的aTabItem隐藏
+			
+			
+			//指定n显示
+			
+			//当n>aLi.length n=0
+		
+		
+		},1000);
+		
+		
+		
+		//鼠标进入tab，暂定自动运行-------------------------
+		tab.onmouseover=function(){
+			clearInterval();
+		};
+		
+		
+		//鼠标离开tab，重新开始自动运行-------------------------
+		tab.onmouseout=function(){
+			//重新启动定时器
+		}
+		
+		
+		
+		
+		
+	};
+	
+	myTab("tabA");
+	myTab("tabB");
+	
+
+
+
+
+};
+
+
+
+</script>
+
+</head>
+
+<body>
+<div id="tabA" class="tab">
+	<ul class="tabList">
+    	<li class="ac"><a href="javascript:;">tab1</a></li>
+        <li><a href="javascript:;">tab2</a></li>
+        <li><a href="javascript:;">tab3</a></li>
+        <li><a href="javascript:;">tab4</a></li>
+    </ul>
+    <div class="tabCont">
+    	<div class="tabItem">11111111111111</div>
+        <div class="tabItem hide">22222222222222</div>
+        <div class="tabItem hide">33333333333</div>
+        <div class="tabItem hide">44444444444444</div>
+    </div>
+</div>
+
+<div id="tabB" class="tab">
+	<ul class="tabList">
+    	<li class="ac"><a href="javascript:;">tab1</a></li>
+        <li><a href="javascript:;">tab2</a></li>
+        <li><a href="javascript:;">tab3</a></li>
+        <li><a href="javascript:;">tab4</a></li>
+    </ul>
+    <div class="tabCont">
+    	<div class="tabItem">11111111111111</div>
+        <div class="tabItem hide">22222222222222</div>
+        <div class="tabItem hide">33333333333</div>
+        <div class="tabItem hide">44444444444444</div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
